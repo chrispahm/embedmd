@@ -120,10 +120,7 @@ func extract(b []byte, start, end *string) ([]byte, error) {
 			return nil, fmt.Errorf("missing slashes (/) around %q", s)
 		}
     fmt.Println(s[1 : len(s)-1])
-		re, err := regexp.MustCompile(s[1 : len(s)-1])
-		if err != nil {
-			return nil, err
-		}
+		re = regexp.MustCompile(s[1 : len(s)-1])
 		loc := re.FindIndex(b)
 		if loc == nil {
 			return nil, fmt.Errorf("could not match %q", s)
