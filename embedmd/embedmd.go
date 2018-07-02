@@ -119,6 +119,7 @@ func extract(b []byte, start, end *string) ([]byte, error) {
 		if len(s) <= 2 || s[0] != '/' || s[len(s)-1] != '/' {
 			return nil, fmt.Errorf("missing slashes (/) around %q", s)
 		}
+    fmt.Println(s[1 : len(s)-1])
 		re, err := regexp.MustCompile(s[1 : len(s)-1])
 		if err != nil {
 			return nil, err
