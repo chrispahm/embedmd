@@ -25,7 +25,7 @@ The format of an `embedmd` command is:
 ```
 
 The embedded code will be extracted from the file at `pathOrURL`,
-which can either be a relative path to a file in the local file
+which can either be a relative/absolute path to a file in the local file
 system (using always forward slashes as directory separator) or
 a URL starting with `http://` or `https://`.
 If the `pathOrURL` is a URL the tool will fetch the content in that URL.
@@ -145,6 +145,8 @@ and add the corresponding code snippets, as shown in
 * `-d`: Executing `embedmd -d docs.md` will display the difference
 between the contents of `docs.md` and the output of
 `embedmd docs.md`.
+
+* `-p`: Executing `embedmd -p docs.md` will use the regexp.Compile function instead of regexp.CompilePosix. This way the regular expressions will not be restricted to POSIX ERE (egrep) syntax.
 
 ### Disclaimer
 

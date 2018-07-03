@@ -35,7 +35,10 @@ type fetcher struct{}
 
 func (fetcher) Fetch(dir, path string) ([]byte, error) {
 	if !strings.HasPrefix(path, "http://") && !strings.HasPrefix(path, "https://") {
-		path = filepath.Join(dir, filepath.FromSlash(path))
+		if (filepath.IsAbs(path)) {
+      return ioutil.ReadFile(path)
+    }
+    path = filepath.Join(dir, filepath.FromSlash(path))
 		return ioutil.ReadFile(path)
 	}
 

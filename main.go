@@ -41,7 +41,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/chrispahm/embedmd/embedmd"
+//	"github.com/chrispahm/embedmd/embedmd"
+  "./embedmd"
 	"github.com/pmezard/go-difflib/difflib"
 )
 
@@ -57,6 +58,7 @@ func main() {
 	rewrite := flag.Bool("w", false, "write result to (markdown) file instead of stdout")
 	doDiff := flag.Bool("d", false, "display diffs instead of rewriting files")
 	printVersion := flag.Bool("v", false, "display embedmd version")
+//  noPOSIX := flag.Bool("p", false, "use regexp.Compile function instead of regexp.CompilePosix")
 	flag.Usage = usage
 	flag.Parse()
 
